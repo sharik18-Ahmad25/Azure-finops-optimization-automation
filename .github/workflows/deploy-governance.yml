@@ -1,0 +1,35 @@
+name: "App-X FinOps Deployment Pipeline"
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  terraform-governance:
+    name: "Validate and Apply FinOps"
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
+    - name: Setup Terraform
+      uses: hashicorp/setup-terraform@v2
+      with:
+        terraform_version: 1.5.0
+
+    # Step 1: Legacy Infra Validation
+    - name: Terraform Init (Legacy)
+      run: |
+        cd step1-legacy-infra
+        terraform init -backend=false
+        terraform validate
+
+    # Step 2: Governance & Automation Validation
+    - name: Terraform Init (Governance)
+      run: |
+        cd step2-finops-governance
+        terraform init -backend=false
+        terraform validate

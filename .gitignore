@@ -1,0 +1,10 @@
+# Block local Terraform cache directories
+.terraform/
+*.terraform*
+
+# Block backend state files (Security best practice)
+*.tfstate
+*.tfstate.*
+
+# Block crash logs
+*.log
