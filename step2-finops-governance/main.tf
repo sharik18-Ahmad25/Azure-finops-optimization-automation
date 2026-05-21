@@ -35,7 +35,7 @@ resource "azurerm_automation_runbook" "vm_snoozer" {
   description             = "Auto stop dev VMs at night"
   runbook_type            = "PowerShell"
 
-  content = file("${path.module}/../automation-scripts/vm-snoozer.ps1")
+  content = file("${path.root}/../automation-scripts/vm-snoozer.ps1")
 
   # ===> YEH LINE ENGINE ME ADD KARNI HAI <===
   tags = var.mandatory_tags
@@ -52,7 +52,7 @@ resource "azurerm_automation_runbook" "zombie_hunter" {
   description             = "Clean unattached disks and IPs"
   runbook_type            = "PowerShell"
 
-  content = file("${path.module}/../automation-scripts/zombie-hunter.ps1")
+  content = file("${path.root}/../automation-scripts/zombie-hunter.ps1")
 
   # ===> YEH LINE BHI YAHAN ADD KARNI HAI <===
   tags = var.mandatory_tags
