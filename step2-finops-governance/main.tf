@@ -64,7 +64,10 @@ resource "azurerm_automation_schedule" "daily_night" {
   automation_account_name = azurerm_automation_account.finops_automation.name
   frequency               = "Day"
   interval                = 1
-  start_time              = "2026-05-21T20:00:00Z"
+  
+  # Time badal kar 4:18 PM IST kar diya taaki 5 minute se zyada ka gap ho jaye
+  start_time              = "2026-05-21T16:18:00+05:30" 
+  
   description             = "Triggers every night to stop non-prod resources"
 }
 
