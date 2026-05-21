@@ -59,7 +59,7 @@ However, implementing governance means setting up rules. When testing the initia
 
 The framework cleanly separates the problem from the solution using a modular directory layout:
 
-
+```bash
 Azure-finops-optimization-automation/
 │
 ├── .github/workflows/
@@ -77,7 +77,7 @@ Azure-finops-optimization-automation/
     ├── main.tf                     # The Orchestrator: Connects schedules to automation runbooks
     ├── providers.tf                # Azure API connection configurations
     └── variables.tf                # Dynamic environment variables
-
+```
 
 ---
 
